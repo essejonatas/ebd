@@ -25,8 +25,15 @@ class Admin extends CI_Controller {
 			redirect('auth/login');
 		}
 		else {
-			$this->load->view('header.php');
-			$this->ion_auth->logout();
+			$trimestre = $this->load->model('trimestre');
+			$data = array(
+					'titulo' => "EBD | Admin",
+					'trimestre' => $this->trimestre->todos()
+					);
+			
+			$this->load->view('header', $data);
+			$this->load->view('admin', $data);
+			$this->load->view('footer', $data);
 		}
 
 	}
