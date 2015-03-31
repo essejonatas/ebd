@@ -20,6 +20,12 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('header.php');
+		if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+		else {
+			$this->load->view('header.php');
+		}
 	}
 }
