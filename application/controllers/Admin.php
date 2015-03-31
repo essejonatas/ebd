@@ -26,6 +26,8 @@ class Admin extends CI_Controller {
 		}
 		else {
 			$this->load->view('header.php');
+			$this->ion_auth->logout();
 		}
+
 	}
 }
